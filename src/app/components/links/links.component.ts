@@ -1,21 +1,22 @@
-import { SportsListService } from './../../service/sports.service';
+import { ListLinks } from './../../store/actions/auth.action';
+import { LinksListService } from '../../service/links.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState, selectAuthState } from 'src/app/store/app.states';
-import { ListSports, DeleteSports } from 'src/app/store/actions/auth.action';
+import { DeleteLinks } from '../../store/actions/auth.action';
 
 @Component({
   selector: 'app-listing-page',
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.css'],
-  providers: [SportsListService],
+  providers: [LinksListService],
 })
 export class LinksComponent implements OnInit {
   public headerTitle = 'Links';
   public loginData: Array<any> = [];
-  public sportsData = [];
+  public linksData = [];
   public userLoginStatus = false;
   public tableTitle = 'Links details';
   getState: Observable<any>;
@@ -29,12 +30,11 @@ export class LinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new ListSports());
+    this.store.dispatch(new ListLinks());
     this.store.subscribe((data) => {
-      if (data && data.sport && data.sport.sports) {
-        this.sportsData = data.sport.sports;
+      if (data && data.link && data.link.links) {
+        this.linksData = data.link.links;
       }
-      console.log(this.sportsData);
     });
 
     this.activatedRoute.params.subscribe(
@@ -47,19 +47,19 @@ export class LinksComponent implements OnInit {
     );
   }
 
-  updateSports(id: any): void {
-    this.router.navigate(['/addsports', id]);
+  updateLinks(id: any): void {
+    this.router.navigate(['/addLinks', id]);
   }
 
-  deleteSports(id: any): void {
-    if (confirm('Are you sure to delete sport')) {
-      this.store.dispatch(new DeleteSports(id));
-      this.store.dispatch(new ListSports());
+  deleteLinks(id: any): void {
+    if (confirm('Are you sure to delete Link')) {
+      this.store.dispatch(new DeleteLinks(id));
+      this.store.dispatch(new ListLinks());
     } else {
     }
   }
 
-  addSports(): void {
-    this.router.navigate(['/addsports']);
+  addLinks(): void {
+    this.router.navigate(['/addLinks']);
   }
 }

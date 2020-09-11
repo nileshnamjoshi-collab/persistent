@@ -1,23 +1,25 @@
-import { User, Sport } from '../model/user';
+import { IUser, ILink } from '../model/user';
 import {
-  AuthActionTypes, All,
-  LIST_SPORTS, ADD_SPORTS,
-  UPDATE_SPORTS,
-  DELETE_SPORTS,
+  AuthActionTypes,
+  All,
+  LIST_LINKS,
+  ADD_LINKS,
+  UPDATE_LINKS,
+  DELETE_LINKS,
   LIST_DATA_SUCCESS,
-  ADD_SPORTS_SUCCESS,
-  DELETE_SPORTS_SUCCESS,
-  UPDATE_SPORTS_SUCCESS
+  ADD_LINKS_SUCCESS,
+  DELETE_LINKS_SUCCESS,
+  UPDATE_LINKS_SUCCESS,
 } from '../actions/auth.action';
 
 export interface State {
   // is a user authenticated?
   isAuthenticated: boolean;
   // if authenticated, there should be a user object
-  user: User | null;
+  user: IUser | null;
   // error message
   errorMessage: string | null;
-  sports: Sport[];
+  links: ILink[];
   added: boolean | null;
   updated: boolean | null;
   deleted: boolean | null;
@@ -28,11 +30,11 @@ export const initialState: State = {
   isAuthenticated: false,
   user: null,
   errorMessage: null,
-  sports: [],
+  links: [],
   added: null,
   updated: null,
   loaded: null,
-  deleted: null
+  deleted: null,
 };
 
 export function reducer(state = initialState, action: All): State {
@@ -43,15 +45,15 @@ export function reducer(state = initialState, action: All): State {
         isAuthenticated: true,
         user: {
           username: action.payload.username,
-          password: action.payload.password
+          password: action.payload.password,
         },
-        errorMessage: null
+        errorMessage: null,
       };
     }
     case AuthActionTypes.LOGIN_FAILURE: {
       return {
         ...state,
-        errorMessage: 'Incorrect email and/or password.'
+        errorMessage: 'Incorrect email and/or password.',
       };
     }
     case AuthActionTypes.SIGNUP_SUCCESS: {
@@ -59,59 +61,59 @@ export function reducer(state = initialState, action: All): State {
         ...state,
         isAuthenticated: true,
         user: {
-          username: action.payload.username
+          username: action.payload.username,
         },
-        errorMessage: null
+        errorMessage: null,
       };
     }
     case AuthActionTypes.LOGOUT: {
       return initialState;
     }
-    case ADD_SPORTS: {
+    case ADD_LINKS: {
       return {
-        ...state
+        ...state,
       };
     }
-    case LIST_SPORTS: {
+    case LIST_LINKS: {
       return {
-        ...state
+        ...state,
       };
     }
-    case DELETE_SPORTS: {
+    case DELETE_LINKS: {
       return {
-        ...state
+        ...state,
       };
     }
-    case UPDATE_SPORTS: {
+    case UPDATE_LINKS: {
       return {
-        ...state
+        ...state,
       };
     }
     case LIST_DATA_SUCCESS: {
       return {
         ...state,
-        sports: [...action.payload],
+        links: [...action.payload],
         errorMessage: null,
-        loaded: true
+        loaded: true,
       };
     }
-    case ADD_SPORTS_SUCCESS: {
+    case ADD_LINKS_SUCCESS: {
       return {
         ...state,
-        errorMessage: 'The Sport is added successfully!',
-        added: true
+        errorMessage: 'The Links is added successfully!',
+        added: true,
       };
     }
-    case DELETE_SPORTS_SUCCESS: {
-      return {
-        ...state
-      };
-    }
-    case UPDATE_SPORTS_SUCCESS: {
+    case DELETE_LINKS_SUCCESS: {
       return {
         ...state,
-        errorMessage: 'The Sport is updated successfully!',
-        added: true
+      };
+    }
+    case UPDATE_LINKS_SUCCESS: {
+      return {
+        ...state,
+        errorMessage: 'The Links is updated successfully!',
+        added: true,
       };
     }
 

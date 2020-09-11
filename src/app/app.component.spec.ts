@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { provideMockStore } from '@ngrx/store/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -16,12 +15,10 @@ describe('AppComponent', () => {
         RouterTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
       ],
-      declarations: [
-        AppComponent
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [AppComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
@@ -32,11 +29,10 @@ describe('AppComponent', () => {
   });
 
   it('should have a default name', () => {
-    expect(component.title).toBe('Sports');
+    expect(component.title).toBe('Links');
   });
 
   it('should have a setMode false', () => {
-    expect(component.setMode).toBeFalsy();
+    expect(component.currTheme).toBeFalsy();
   });
-
 });

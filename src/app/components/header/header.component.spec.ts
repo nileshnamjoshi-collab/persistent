@@ -10,12 +10,11 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [HeaderComponent],
       imports: [RouterTestingModule],
       providers: [provideMockStore()],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -27,12 +26,6 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it(`should have title 'Sports'`, () => {
-    fixture.detectChanges();
-    expect(component.headerTitle).toContain('Sports');
-  });
-
   it(`should have userLoginStatus declared`, () => {
     fixture.detectChanges();
     expect(component.userLoginStatus).toBeUndefined();

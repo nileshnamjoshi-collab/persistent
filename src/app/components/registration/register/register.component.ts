@@ -11,7 +11,7 @@ import { SignUp } from 'src/app/store/actions/auth.action';
 })
 export class RegisterComponent {
   public registerForm: any;
-  public SportsData: any;
+  public LinksData: any;
 
   constructor(private fb: FormBuilder, private store: Store<AppState>) {
     this.registerForm = this.fb.group({

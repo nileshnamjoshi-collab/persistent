@@ -1,32 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
-import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-export class SportsListService {
-
+export class LinksListService {
   public baseRefUrl = environment.baseRefUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getSports(): Observable<any> {
+  getLinks(): Observable<any> {
     return this.http.get(`${this.baseRefUrl}/` + 'data');
   }
 
-  addSport(sport: any): Observable<any> {
-    return this.http.post(`${this.baseRefUrl}/` + 'data', sport);
+  addLink(link: any): Observable<any> {
+    return this.http.post(`${this.baseRefUrl}/` + 'data', link);
   }
 
-  deleteSportsById(id: any): Observable<any> {
+  deleteLinksById(id: any): Observable<any> {
     return this.http.delete(`${this.baseRefUrl}/` + 'data/' + id);
   }
 
-  updateSport(sport: any): Observable<any> {
-    return this.http.put(`${this.baseRefUrl}/` + 'data/' + sport.id, sport);
+  updateLink(link: any): Observable<any> {
+    return this.http.put(`${this.baseRefUrl}/` + 'data/' + link.id, link);
   }
 
   getLoginCheck(): Observable<any> {

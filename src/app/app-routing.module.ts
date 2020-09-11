@@ -7,8 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'list', component: LinksComponent },
-  { path: 'addsports', component: AddLinksComponent },
-  { path: 'addsports/:id', component: AddLinksComponent },
+  { path: 'addLinks', component: AddLinksComponent },
+  { path: 'addLinks/:id', component: AddLinksComponent },
   {
     path: 'registermodule',
     loadChildren: () =>

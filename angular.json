@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Sports"
+    }
+  },
+  "defaultProject": "Sports",
+  "cli": {
+    "analytics": "ec7c8cd0-42b7-4744-8bf9-b268e81552c8"
+  }
 }

@@ -60,3 +60,15 @@ body {
   }
 
 }
+
+.application {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.application-theme {
+  width: 100%;
+  margin: 10px auto;
+  background-color: black;
+  color: lightseagreen;
+}

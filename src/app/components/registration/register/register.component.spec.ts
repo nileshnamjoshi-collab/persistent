@@ -14,17 +14,16 @@ describe('RegisterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ],
+      declarations: [RegisterComponent],
       imports: [
         RouterTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
       ],
       providers: [provideMockStore()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -44,8 +43,8 @@ describe('RegisterComponent', () => {
     expect(component.registerForm).toBeTruthy();
   });
 
-  it(`should have 'SportsData' declared`, () => {
+  it(`should have 'LinksData' declared`, () => {
     fixture.detectChanges();
-    expect(component.SportsData).toBeUndefined();
+    expect(component.LinksData).toBeUndefined();
   });
 });

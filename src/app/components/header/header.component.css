@@ -1,19 +1,6 @@
-/* 
-.div1 {
-    background-color: lightseagreen;
-    display: inline-flex;
-    width: 100%;
+.pointer {
+  cursor: pointer;
 }
-
-.ui-button {
-    margin-left: 801px;
-}
-
-.header-button {
-    margin: 15px;
-    padding: 6px 10px 6px 10px;
-}
- */
 
 .topnav {
   overflow: auto;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { SportsListService } from 'src/app/service/sports.service';
+import { LinksListService } from 'src/app/service/links.service';
 import { AppState } from 'src/app/store/app.states';
 import { LogInSuccess, LogInFailure } from 'src/app/store/actions/auth.action';
 
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private sportsService: SportsListService,
+    private linkService: LinksListService,
     private router: Router,
     private store: Store<AppState>
   ) {}
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(credentials: any): void {
-    this.sportsService.getLoginCheck().subscribe(
+    this.linkService.getLoginCheck().subscribe(
       (checklogin) => {
         if (credentials && checklogin) {
           const login = checklogin;
